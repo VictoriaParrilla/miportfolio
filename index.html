@@ -691,7 +691,7 @@
 
         .project {
             width: 450px;
-            flex-shrink: 30;
+            flex-shrink: 0;
         }
 
         .project-image {
@@ -1245,15 +1245,21 @@
 ========================= */
 
 .about-section {
-    position: sticky;
-    min-height: 80vh;
-    display: flow;
-    align-items:center;
-    justify-content: center;
-    padding: 50px 2%;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
     overflow: hidden;
     background: #F7D6DF;
+    isolation: isolate;
+    scroll-margin-top: 0;
+    box-sizing: border-box;
 }
+
 
 /* CONTENEDOR DE LA FOTO */
 
@@ -1262,7 +1268,7 @@
     width: 90vw;
     max-width: 895px;
     height: 90vh;
-    left: 63%;
+    left: 50%;
     top: 50%;
     transform: translateY(-50%);
     overflow: hidden;
@@ -1328,12 +1334,14 @@
 .about-content {
     position: relative;
     z-index: 2;
-
     width: 45%;
-    margin-left: 10%;
-    padding: 10px 0;
+    margin-left: 11%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
-
 .about-small-title {
     font-size: 12px;
     letter-spacing: 4px;
@@ -1360,6 +1368,9 @@
 
 .about-image-container {
     transition: transform 0.2s ease-out;
+
+   
+
 }
 
 
@@ -1407,6 +1418,121 @@
 
     .about-content h2 {
         font-size: clamp(50px, 15vw, 90px);
+    }
+
+}
+/* =====================================================
+   ADAPTACIÓN PARA MÓVILES
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* ---------------------------------------------
+       PORTADA
+    --------------------------------------------- */
+
+    .cover-hero {
+        min-height: 100svh;
+        height: 100svh;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .cover-image-wrap {
+        width: 100%;
+        height: 100%;
+    }
+
+    .cover-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+
+    /* ---------------------------------------------
+       ABOUT / SOBRE MÍ
+    --------------------------------------------- */
+
+    .about-section {
+        min-height: auto;
+        height: auto;
+        padding: 80px 7% 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow: hidden;
+    }
+
+    .about-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-content h2 {
+        font-size: clamp(52px, 15vw, 90px);
+        line-height: 0.9;
+        margin-bottom: 30px;
+        max-width: 100%;
+    }
+
+    .about-intro {
+        width: 100%;
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+
+    /* ---------------------------------------------
+       IMAGEN DE ABOUT
+    --------------------------------------------- */
+
+    .about-image-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 50px 0;
+        transform: none;
+    }
+
+    .about-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+
+    /* ---------------------------------------------
+       CARRUSEL
+    --------------------------------------------- */
+
+    .works-viewport {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .project {
+        width: 82vw;
+        flex: 0 0 82vw;
+    }
+
+    .project-grid {
+        gap: 20px;
+    }
+
+
+    /* ---------------------------------------------
+       FLECHAS DEL CARRUSEL
+    --------------------------------------------- */
+
+    .works-arrow {
+        z-index: 10;
     }
 
 }
@@ -1477,117 +1603,84 @@
             <button type="button" class="works-arrow works-prev" aria-label="Trabajo anterior" >←</button>
             <button type="button" class="works-arrow works-next" aria-label="Trabajo siguiente" >→</button>
             <div class="works-viewport">
-            <div class="project-grid">
- <article class="project">
+                <div class="project-grid">
 
-                    <a href="#" class="project-open" data-category="art">
+    <article class="project">
 
-                        <div class="project-image image-4">
-                             <img src="imagenes/lady.jpg" alt="Photo">
-                           
-                        </div>
+        <a href="#" class="project-open" data-category="3d">
 
-                        <div class="project-info">
+            <div class="project-image image-3">
+                <img src="imagenes/ciudad.png" alt="Photo">
+            </div>
 
-                            <div>
-                                <h3>
-                                    Art
-                                </h3>
+            <div class="project-info">
 
-                    
-                            </div>
+                <div>
+                    <h3>
+                        3D Desing
+                    </h3>
+                </div>
 
-                          
+            </div>
 
-                        </div>
+        </a>
 
-                    </a>
+    </article>
 
-                </article>
-                  <article class="project">
 
-                    <a href="#" class="project-open" data-category="3d">
+    <article class="project">
 
-                        <div class="project-image image-3">
-                             <img src="imagenes/ciudad.png" alt="Photo">
-                           
-                        </div>
+        <a href="#" class="project-open" data-category="illustration">
 
-                        <div class="project-info">
+            <div class="project-image image-2">
+                <img src="imagenes/templo.jpg" alt="Photo">
+            </div>
 
-                            <div>
-                                <h3>
-                                    3D Desing
-                                </h3>
+            <div class="project-info">
 
-                             
-                            </div>
+                <div>
+                    <h3>
+                        Ilustration
+                    </h3>
+                </div>
 
-                           
-                        </div>
+            </div>
 
-                    </a>
+        </a>
 
-                </article>
+    </article>
 
-                <article class="project">
 
-                    <a href="#" class="project-open" data-category="illustration">
+    <article class="project">
 
-                        <div class="project-image image-2">
-                            <img src="imagenes/templo.jpg" alt="Photo">
-                          
-                        </div>
+        <a href="#" class="project-open" data-category="photo">
 
-                        <div class="project-info">
+            <div class="project-image image-1">
+                <img src="imagenes/pfoto.JPG" alt="Photo">
+            </div>
 
-                            <div>
-                                <h3>
-                                    Ilustration
-                                </h3>
+            <div class="project-info">
 
-                             
-                            </div>
+                <div>
+                    <h3>
+                        Photo
+                    </h3>
+                </div>
 
-                          
-                        </div>
+            </div>
 
-                    </a>
+        </a>
 
-                </article>
-<article class="project">
+    </article>
 
-                    <a href="#" class="project-open" data-category="photo">
-
-                        <div class="project-image image-1">
-                            <img src="imagenes/pfoto.JPG" alt="Photo">
-                            
-                        </div>
-
-                        <div class="project-info">
-
-                            <div>
-                                <h3>
-                                    Photo
-                                </h3>
-
-                               
-                            </div>
-
-                            
-
-                        </div>
-
-                    </a>
-
-                </article>
+</div>
+    
 
 
 
 
                 
 
-            </div><!-- /project-grid -->
             </div><!-- /works-viewport -->
             </div><!-- /works-carousel -->
 
@@ -1686,24 +1779,18 @@
         <div>
               <a href="#">
                
-               © 2026 Victoria Parrilla Montero</a>
+               © 2026 Victoria Parrilla Montero. All Rights Reserved</a>
          
         </div>
 
         <div class="socials">
-            
-    
-            <a href="#">
-                Instagram
-            </a>
+        
 
             <a href="#">
                 LinkedIn
             </a>
 
-            <a href="#">
-                Behance
-            </a>
+        
 
 
         </div>
@@ -1978,7 +2065,7 @@ const categoryWorks = {
                 description: "",
 
                 images: [
-                    "ilustracion/ritz/FINAM.jpg",
+                    "ilustracion/ritz/FINALM.jpg",
                     "ilustracion/ritz/FINAL.jpg",
                     "ilustracion/ritz/FINALJ.jpg",
                 ]
@@ -2076,7 +2163,7 @@ const categoryWorks = {
                 description: "",
 
                 images: [
-                    "art-2.jpg"
+                    ""
                 ]
             },
 
@@ -2086,7 +2173,7 @@ const categoryWorks = {
                 description: "",
 
                 images: [
-                    "art-3.jpg"
+                    ""
                 ]
             },
 
@@ -2096,7 +2183,7 @@ const categoryWorks = {
                 description: "",
 
                 images: [
-                    "art-4.jpg"
+                    ""
                 ]
             }
         ]
@@ -2964,356 +3051,271 @@ document.addEventListener(
 
 
 /* =====================================================
-   CARRUSEL HORIZONTAL
+   CARRUSEL HORIZONTAL INFINITO
 ===================================================== */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-        const carousel =
-            document.querySelector(
-                ".works-carousel"
-            );
+    const carousel = document.querySelector(".works-carousel");
+    const viewport = carousel?.querySelector(".works-viewport");
+    const track = carousel?.querySelector(".project-grid");
+    const prevBtn = carousel?.querySelector(".works-prev");
+    const nextBtn = carousel?.querySelector(".works-next");
 
-        const track =
-            carousel &&
-            carousel.querySelector(
-                ".project-grid"
-            );
+    if (!carousel || !viewport || !track) return;
 
-        const prevBtn =
-            carousel &&
-            carousel.querySelector(
-                ".works-prev"
-            );
+    /* ---------------------------------------------
+       CONFIGURACIÓN
+    --------------------------------------------- */
 
-        const nextBtn =
-            carousel &&
-            carousel.querySelector(
-                ".works-next"
-            );
+    const SPEED = 0.18;
 
+    let cards = Array.from(
+        track.querySelectorAll(".project")
+    );
+
+    if (!cards.length) return;
+
+    /* ---------------------------------------------
+       ELIMINAMOS ART DEL CARRUSEL
+    --------------------------------------------- */
+
+    cards.forEach(card => {
+
+        const link = card.querySelector(".project-open");
 
         if (
-            !track ||
-            !prevBtn ||
-            !nextBtn
+            link &&
+            link.dataset.category === "art"
         ) {
-            return;
+            card.remove();
         }
 
+    });
 
-        const SPEED = 120;
+    /* Volvemos a obtener las tarjetas */
+    cards = Array.from(
+        track.querySelectorAll(".project")
+    );
 
-        const CLICK_DURATION = 650;
+    /* ---------------------------------------------
+       ESTILOS NECESARIOS
+    --------------------------------------------- */
 
-        const reduceMotion =
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches;
+    track.style.display = "flex";
+    track.style.flexWrap = "nowrap";
+    track.style.width = "max-content";
+    track.style.gap = "30px";
+    track.style.willChange = "transform";
 
+    cards.forEach(card => {
 
-        const originals =
-            Array.from(
-                track.children
+        card.style.flex = "0 0 450px";
+
+    });
+
+    /* ---------------------------------------------
+       CREAMOS MUCHAS COPIAS
+       
+       Esto es lo que hace que nunca se vea
+       el principio ni el final.
+    --------------------------------------------- */
+
+    const copies = 8;
+
+    for (let i = 0; i < copies; i++) {
+
+        cards.forEach(card => {
+
+            const clone = card.cloneNode(true);
+
+            clone.setAttribute(
+                "aria-hidden",
+                "true"
             );
 
-
-        const makeClones = () =>
-            originals.map(item => {
-
-                const clone =
-                    item.cloneNode(true);
-
-                clone.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-                clone.querySelectorAll(
-                    "a"
-                ).forEach(a => {
-
-                    a.setAttribute(
-                        "tabindex",
-                        "-1"
-                    );
-                });
-
-                return clone;
+            clone.querySelectorAll("a").forEach(a => {
+                a.setAttribute("tabindex", "-1");
             });
 
+            track.appendChild(clone);
 
-        const before =
-            makeClones();
+        });
 
-        const after = [
-            ...makeClones(),
-            ...makeClones()
-        ];
+    }
 
+    /* ---------------------------------------------
+       MEDIMOS UNA VUELTA COMPLETA
+    --------------------------------------------- */
 
-        before.forEach(
-            clone =>
-                track.insertBefore(
-                    clone,
-                    track.firstChild
-                )
-        );
+    let setWidth = 0;
+    let position = 0;
 
+    function measure() {
 
-        after.forEach(
-            clone =>
-                track.appendChild(clone)
-        );
+        const first = cards[0];
+        const last = cards[cards.length - 1];
 
+        if (!first || !last) return;
 
-        let setWidth = 0;
+        const firstLeft =
+            first.offsetLeft;
 
-        let step = 0;
+        const lastRight =
+            last.offsetLeft +
+            last.offsetWidth;
 
+        setWidth =
+            lastRight -
+            firstLeft +
+            30;
 
-        const measure = () => {
+    }
 
-            if (!originals.length)
-                return;
+    measure();
 
+    /* ---------------------------------------------
+       COLOCAMOS EL CARRUSEL
+       
+       Empezamos en una copia, no en el original.
+    --------------------------------------------- */
 
-            setWidth =
-                originals[0].offsetLeft -
-                before[0].offsetLeft;
+    position = setWidth * 2;
 
+    function render() {
 
-            if (originals.length > 1) {
+        track.style.transform =
+            `translate3d(${-position}px, 0, 0)`;
 
-                step =
-                    originals[1].offsetLeft -
-                    originals[0].offsetLeft;
+    }
 
-            } else {
+    render();
 
-                step =
-                    originals[0].offsetWidth +
-                    30;
-            }
-        };
+    /* ---------------------------------------------
+       MOVIMIENTO INFINITO
+    --------------------------------------------- */
 
+    let paused = false;
+    let lastTime = performance.now();
 
-        const mod = (n, m) =>
-            ((n % m) + m) % m;
+    function animate(now) {
 
-
-        let pos = 0;
-
-        let anim = null;
-
-        let paused = false;
-
-        let last =
-            performance.now();
-
-
-        const render = () => {
-
-            if (!setWidth) return;
-
-            track.style.transform =
-                `translate3d(${
-                    -(setWidth +
-                    mod(pos, setWidth))
-                }px, 0, 0)`;
-        };
-
-
-        const frame = now => {
-
-            const dt =
-                Math.min(
-                    now - last,
-                    50
-                ) / 1000;
-
-            last = now;
-
-
-            if (anim) {
-
-                const t =
-                    Math.min(
-                        1,
-                        (now - anim.start) /
-                        anim.duration
-                    );
-
-
-                const eased =
-                    1 -
-                    Math.pow(
-                        1 - t,
-                        3
-                    );
-
-
-                pos =
-                    anim.from +
-                    (
-                        anim.to -
-                        anim.from
-                    ) * eased;
-
-
-                if (t === 1) {
-
-                    pos =
-                        mod(
-                            pos,
-                            setWidth
-                        );
-
-                    anim = null;
-                }
-
-
-            } else if (
-                !paused &&
-                !reduceMotion
-            ) {
-
-                pos +=
-                    SPEED * dt;
-            }
-
-
-            render();
-
-            requestAnimationFrame(
-                frame
+        const delta =
+            Math.min(
+                now - lastTime,
+                40
             );
-        };
 
+        lastTime = now;
 
-        const move = direction => {
+        if (!paused) {
 
-            if (!setWidth) return;
+            position +=
+                SPEED * delta;
 
+        }
 
-            const from = pos;
+        /*
+         * Cuando hemos pasado una colección completa,
+         * desplazamos la posición exactamente una vuelta.
+         *
+         * Como las copias son idénticas,
+         * el usuario NO VE el salto.
+         */
 
-            const base =
-                anim
-                    ? anim.to
-                    : pos;
+        if (
+            position >=
+            setWidth * 5
+        ) {
 
+            position -= setWidth * 3;
 
-            anim = {
+        }
 
-                from,
+        if (
+            position <=
+            setWidth
+        ) {
 
-                to:
-                    base +
-                    direction * step,
+            position += setWidth * 3;
 
-                start:
-                    performance.now(),
+        }
 
-                duration:
-                    CLICK_DURATION
-            };
-        };
+        render();
 
+        requestAnimationFrame(animate);
 
-        prevBtn.addEventListener(
-            "click",
-            () => move(-1)
-        );
+    }
+
+    requestAnimationFrame(animate);
+
+    /* ---------------------------------------------
+       PAUSA AL PONER EL RATÓN ENCIMA
+    --------------------------------------------- */
+
+    carousel.addEventListener(
+        "mouseenter",
+        () => {
+            paused = true;
+        }
+    );
+
+    carousel.addEventListener(
+        "mouseleave",
+        () => {
+            paused = false;
+        }
+    );
+
+    /* ---------------------------------------------
+       FLECHA SIGUIENTE
+    --------------------------------------------- */
+
+    if (nextBtn) {
 
         nextBtn.addEventListener(
             "click",
-            () => move(1)
-        );
-
-
-        carousel.addEventListener(
-            "pointerenter",
-            event => {
-
-                if (
-                    event.pointerType ===
-                    "mouse"
-                ) {
-                    paused = true;
-                }
-            }
-        );
-
-
-        carousel.addEventListener(
-            "pointerleave",
-            event => {
-
-                if (
-                    event.pointerType ===
-                    "mouse"
-                ) {
-                    paused = false;
-                }
-            }
-        );
-
-
-        carousel.addEventListener(
-            "focusin",
-            () => {
-                paused = true;
-            }
-        );
-
-
-        carousel.addEventListener(
-            "focusout",
-            () => {
-                paused = false;
-            }
-        );
-
-
-        window.addEventListener(
-            "resize",
             () => {
 
-                const ratio =
-                    setWidth
-                        ? mod(
-                            pos,
-                            setWidth
-                        ) / setWidth
-                        : 0;
+                position += 480;
 
-
-                measure();
-
-
-                pos =
-                    ratio * setWidth;
-
-                anim = null;
             }
         );
 
-
-        measure();
-
-        requestAnimationFrame(
-            time => {
-
-                last = time;
-
-                frame(time);
-            }
-        );
     }
-);
+
+    /* ---------------------------------------------
+       FLECHA ANTERIOR
+    --------------------------------------------- */
+
+    if (prevBtn) {
+
+        prevBtn.addEventListener(
+            "click",
+            () => {
+
+                position -= 480;
+
+            }
+        );
+
+    }
+
+    /* ---------------------------------------------
+       RECALCULAR SI CAMBIA EL TAMAÑO
+       DE LA PANTALLA
+    --------------------------------------------- */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            measure();
+
+        }
+    );
+
+});
 /* =========================
    PARALLAX SOBRE MÍ
 ========================= */
